@@ -1,1 +1,38 @@
+.main{
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lightblue;
+    border-radius: 10px;
+}
 
+button{
+    background-color: lightgreen;
+    opacity: 0.8;
+    color: green;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+button:hover{
+    cursor: pointer;
+}
+input{
+    padding: 10px;
+}
+.formItem{
+    margin: 10px 0px;
+}
+
+.flexBtn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logError{
+    color: red;
+    font-size: 14px;
+}
