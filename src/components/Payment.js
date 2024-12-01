@@ -22,7 +22,7 @@ const Payment = ({handleCardName, hanldeFormData, formData}) => {
         handleCardName("customer");
     }
   return (
-    <div>
+    <div id='step3'>
       <h1>Payment Details</h1>
       <form>
         <div className='formItem'>

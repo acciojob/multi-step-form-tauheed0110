@@ -24,7 +24,7 @@ const Car = ({handleCardName, hanldeFormData}) => {
 
     }
   return (
-    <div>
+    <div id='step2'>
       <h1>Car Details</h1>
       <form>
         <div className='formItem'>

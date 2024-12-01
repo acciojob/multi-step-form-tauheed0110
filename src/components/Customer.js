@@ -17,7 +17,7 @@ const Customer = ({handleCardName, hanldeFormData}) => {
         handleCardName("car");
     }
   return (
-    <div>
+    <div id='step1'>
       <h1>Customer Details</h1>
       <form>
         <div className='formItem'>
