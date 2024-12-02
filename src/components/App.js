@@ -1,30 +1,55 @@
-
-import React, { useState } from "react";
-import './../styles/App.css';
-import Customer from "./Customer";
-import Car from "./Car";
-import Payment from "./Payment";
-
-const App = () => {
-  // create a state to have the name of the card to which i will render;
-  const [cardName, setCardName] = useState("customer");
-  const [formData, setFormData] = useState({});
-
-  const handleCardName = (name)=>{
-    setCardName(name)
-  }
-  const hanldeFormData = (data)=>{
-    setFormData({...formData, ...data});
-  }
+import React, { useState } from 'react';
+import Step from './Step';
+ 
+function App() {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    model: '',
+    car_price: '',
+    card_info: '',
+    expiry_date: ''
+  });
+ 
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setFormData({ ...formData, [id]: value });
+  };
+ 
+  const handleNext = () => {
+    if (currentStep < 3) {
+      setCurrentStep(prevStep => prevStep + 1);
+    }
+  };
+ 
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(prevStep => prevStep - 1);
+    }
+  };
+ 
+  const handleSubmit = () => {
+    alert('Form submitted!');
+    console.log(formData);
+  };
+ 
   return (
-    <div className="main">
-      {
-        cardName === "customer" ? <Customer handleCardName={handleCardName} hanldeFormData={hanldeFormData}/> : 
-        cardName === "car" ? <Car handleCardName={handleCardName} hanldeFormData={hanldeFormData}/> : 
-        cardName === "payment" ? <Payment handleCardName={handleCardName} hanldeFormData={hanldeFormData}formData={formData}/>: false
-      }
+    <div>
+      <h1>Multi-Step Form</h1>
+      <Step
+        step={currentStep}
+        formData={formData}
+        onChange={handleChange}
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+        onSubmit={handleSubmit}
+      />
     </div>
-  )
+  );
 }
-
-export default App
+ 
+export default App;
+ 
+ 
+ 
